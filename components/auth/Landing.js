@@ -42,12 +42,31 @@ export default function Landing({ navigation }) {
   return (
     <View>
       <View>
+        <Text
+          style={{
+            marginTop: "12px",
+            marginBottom: "12px",
+            marginLeft: "12px",
+          }}
+        >
+          Suggest me a feature at{" "}
+          <Text
+            style={{
+              textDecorationLine: "underline",
+            }}
+          >
+            "freelancerbuddy26@gmail.com"
+          </Text>
+          . This is the very first version of the site, need your support to
+          enhance it further ;).
+        </Text>
         <Button
           title="Register"
           onPress={() => navigation.navigate("Register")}
         />
         <Button title="Login" onPress={() => navigation.navigate("Login")} />
       </View>
+
       <ScrollView horizontal={true}>
         {/* Render your data here */}
         {data.map((item, index) => (
