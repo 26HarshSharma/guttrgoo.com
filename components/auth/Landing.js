@@ -13,7 +13,6 @@ export default function Landing({ navigation }) {
       const dbContent = ref(realtimeDb, `users/`);
       onValue(dbContent, function (snapshot) {
         if (!snapshot.exists()) {
-          alert("Empty!");
           return;
         }
         let publicContentArrayEnteries = Object.entries(snapshot.val());
@@ -21,7 +20,7 @@ export default function Landing({ navigation }) {
         let arr1 = Object.entries(publicContentArrayEnteries);
         let arr2 = [];
         let arr3 = [];
-        //console.log(arr);
+
         for (const i of arr1) {
           arr2.push(i[1]);
         }
@@ -30,10 +29,11 @@ export default function Landing({ navigation }) {
         }
         for (const k of arr3) {
           let text = Object.values(k);
-          docs.push(text);
+          for (const l of text) {
+            docs.push(l);
+          }
         }
-        console.log(docs);
-        setData(docs[0]);
+        setData(docs);
       });
     };
     fetchData();

@@ -76,10 +76,15 @@ const Register = ({ navigation }) => {
         email: email,
       });
       await sendEmailVerification(user);
+      alert(
+        "A verification link has been sent to your provided email, plick click to verify. Check your spam folder."
+      );
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.error(errorMessage);
+      if (errorCode == "auth/email-already-in-use") {
+        alert("You are already registered, please log in");
+      }
     }
   };
 

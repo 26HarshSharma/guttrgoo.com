@@ -12,19 +12,17 @@ import RegisterScreen from "./components/auth/Register";
 import LoginScreen from "./components/auth/Login";
 import BlogsScreen from "./components/Blogs";
 import WritingBlogScreen from "./components/WriteBlog";
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-//for production/deployement use environment variable instead, otherwise, anyone can see this configuration.
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyD1usFAhrvH6eIzie1UpxklUpmnTU4HRMM",
-  authDomain: "instagram-dev-e9124.firebaseapp.com",
-  databaseURL:
-    "https://instagram-dev-e9124-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "instagram-dev-e9124",
-  storageBucket: "instagram-dev-e9124.appspot.com",
-  messagingSenderId: "163771112967",
-  appId: "1:163771112967:web:936bfc016edb49958154a2",
-  measurementId: "G-FV3GEC7NHK",
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DATABASE_URL,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID,
 };
 
 //to initialise the firebase in our project.

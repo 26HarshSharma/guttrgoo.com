@@ -66,7 +66,6 @@ export class WriteBlog extends Component {
 
       // Push the new entry to the entries array
       entries.push({ id: "", text });
-      console.log(entries);
       // Update the Firestore document with the new entries array
       const usersDocRef = doc(db, "users", `${id}`);
       await updateDoc(usersDocRef, {
@@ -74,7 +73,6 @@ export class WriteBlog extends Component {
         date: formattedDate,
         time: formattedTime,
       });
-
       console.log("Updated successfully!");
     } catch (e) {
       console.error("Error adding document: ", e);

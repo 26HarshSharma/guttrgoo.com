@@ -56,14 +56,12 @@ export default function Blogs({ navigation }) {
       });
       //ye update krne ke liye ki kya user ne email verification link prr click kiya hai yaa nhi
       auth.onAuthStateChanged((user) => {
-        console.log(user);
         if (user.emailVerified === true) {
           verificationStatus = true;
         }
       });
       setData(docs);
       setName(username);
-      //console.log(docs);
     };
     fetchData();
   }, []);
@@ -83,20 +81,19 @@ export default function Blogs({ navigation }) {
       userId = doc.id;
       deletedId = doc.data().content[index].id;
     });
-
     console.log(deletedId);
     // Update the content array by removing the item at the specified index
     const updatedItems = [...data];
 
     const deletedBlog = updatedItems.splice(index, 1)[0];
-    //console.log(updatedItems);
+
     // Update Firestore with the updated content array
     const usersDocRef = doc(db, "users", `${userId}`);
     const updatedContent = updatedItems.map((item) => ({
       id: item[0],
       text: item[1],
     }));
-    //console.log(updatedContent);
+
     await updateDoc(usersDocRef, {
       content: updatedContent,
     });
@@ -105,11 +102,14 @@ export default function Blogs({ navigation }) {
     setData(updatedItems);
 
     // Delete the blog from Realtime Database
-    const realtimeDbContentRef = ref(
-      realtimeDb,
-      `users/${userId}/${deletedId}`
-    );
-    remove(realtimeDbContentRef);
+    //ye check lagana zaroori tha nhi toh saarey ke saarey blogs deleted ho jaa rahe thai realtime DB se.
+    if (deletedId !== "") {
+      const realtimeDbContentRef = ref(
+        realtimeDb,
+        `users/${userId}/${deletedId}`
+      );
+      remove(realtimeDbContentRef);
+    }
 
     // Return the deleted blog for any additional handling
     return deletedBlog;
@@ -164,13 +164,10 @@ export default function Blogs({ navigation }) {
       return;
     }
 
-    //console.log(firestoreContent);
-
     // Assuming you have fetched the publicContent and updatedDocId correctly
     const dbContent = ref(realtimeDb, `users/${id}`);
     let realtimeDbContentPath = await push(dbContent, publicContent);
     //giving me the exact destination for the data being stored in realtime DB.
-    console.log(realtimeDbContentPath._path);
     firestoreContent[index].id = realtimeDbContentPath._path.pieces_[2];
 
     const usersDocRef = doc(db, "users", `${id}`);
