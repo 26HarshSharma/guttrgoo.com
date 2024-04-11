@@ -56,8 +56,7 @@ export default function Landing({ navigation }) {
             }}
           >
             "freelancerbuddy26@gmail.com"
-          </Text>{" "}
-          Need your support, as this is the first version of the site.
+          </Text>
         </Text>
         <Button
           title="Register"
