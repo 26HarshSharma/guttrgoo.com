@@ -56,9 +56,8 @@ export default function Landing({ navigation }) {
             }}
           >
             "freelancerbuddy26@gmail.com"
-          </Text>
-          . This is the very first version of the site, need your support to
-          enhance it further ;).
+          </Text>{" "}
+          Need your support, as this is the first version of the site.
         </Text>
         <Button
           title="Register"
@@ -70,23 +69,25 @@ export default function Landing({ navigation }) {
       <ScrollView horizontal={true}>
         {/* Render your data here */}
         {data.map((item, index) => (
-          <ScrollView>
+          <ScrollView style={{ flexGrow: 1 }}>
             <Text
               style={{
                 borderLeftColor: "black",
                 borderLeftWidth: 2,
                 padding: 12,
-                margin: 12,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
+
                 width: "95vw",
-                height: "75vh",
+                height: "70vh",
               }}
-              key={index}
             >
               {item}
+              <View
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  marginTop: 24,
+                }}
+              ></View>
             </Text>
           </ScrollView>
         ))}
