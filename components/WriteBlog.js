@@ -43,7 +43,7 @@ export class WriteBlog extends Component {
       }
       if (verificationStatus === false) {
         alert(
-          "Please verify your email first by clicking on the link send on the your email address"
+          "Please verify your email first by clicking on the link send on your registered email address"
         );
         return;
       }
