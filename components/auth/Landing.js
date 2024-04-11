@@ -70,23 +70,25 @@ export default function Landing({ navigation }) {
       <ScrollView horizontal={true}>
         {/* Render your data here */}
         {data.map((item, index) => (
-          <Text
-            style={{
-              borderLeftColor: "black",
-              borderLeftWidth: 2,
-              padding: 12,
-              margin: 12,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              alignItems: "center",
-              width: "95vw",
-              height: "75vh",
-            }}
-            key={index}
-          >
-            {item}
-          </Text>
+          <ScrollView>
+            <Text
+              style={{
+                borderLeftColor: "black",
+                borderLeftWidth: 2,
+                padding: 12,
+                margin: 12,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: "center",
+                width: "95vw",
+                height: "75vh",
+              }}
+              key={index}
+            >
+              {item}
+            </Text>
+          </ScrollView>
         ))}
       </ScrollView>
     </View>
