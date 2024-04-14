@@ -14,6 +14,7 @@ import BlogsScreen from "./components/Blogs";
 import WritingBlogScreen from "./components/WriteBlog";
 
 
+
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: process.env.AUTH_DOMAIN,

@@ -58,11 +58,27 @@ export default function Landing({ navigation }) {
             "freelancerbuddy26@gmail.com"
           </Text>
         </Text>
-        <Button
-          title="Register"
-          onPress={() => navigation.navigate("Register")}
-        />
-        <Button title="Login" onPress={() => navigation.navigate("Login")} />
+        <View
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "row",
+          }}
+        >
+          <View style={{margin: 4}}>
+            <Button
+              title="Register"
+              onPress={() => navigation.navigate("Register")}
+            />
+          </View>
+          <View style={{margin: 4}}>
+            <Button
+              title="Login"
+              onPress={() => navigation.navigate("Login")}
+            />
+          </View>
+        </View>
       </View>
 
       <ScrollView horizontal={true}>
@@ -76,7 +92,7 @@ export default function Landing({ navigation }) {
                 padding: 12,
 
                 width: "95vw",
-                height: "70vh",
+                height: "74vh",
               }}
             >
               {item}
