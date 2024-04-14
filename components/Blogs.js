@@ -192,16 +192,32 @@ export default function Blogs({ navigation }) {
       >
         {name} is logged in...
       </Text>
-      <Button
-        title="Log Out"
-        onPress={() => {
-          const auth = getAuth();
-          auth.signOut().then(() => {
-            navigation.navigate("Landing");
-          });
+      <View
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "row",
         }}
-      />
-      <Button title="Write" onPress={() => navigation.navigate("WriteBlog")} />
+      >
+        <View style={{ margin: 4 }}>
+          <Button
+            title="Log Out"
+            onPress={() => {
+              const auth = getAuth();
+              auth.signOut().then(() => {
+                navigation.navigate("Landing");
+              });
+            }}
+          />
+        </View>
+        <View style={{ margin: 4 }}>
+          <Button
+            title="Write"
+            onPress={() => navigation.navigate("WriteBlog")}
+          />
+        </View>
+      </View>
       <View style={{ flex: 1 }}>
         <ScrollView horizontal={true}>
           {data.length > 0 ? (
@@ -258,7 +274,7 @@ export default function Blogs({ navigation }) {
                         justifyContent: "space-between",
                         alignItems: "center",
                         width: "95vw",
-                        height: "74vh",
+                        height: "75vh",
                       }}
                     >
                       {item[1]}
