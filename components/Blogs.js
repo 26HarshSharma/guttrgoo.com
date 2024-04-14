@@ -274,7 +274,7 @@ export default function Blogs({ navigation }) {
                         justifyContent: "space-between",
                         alignItems: "center",
                         width: "95vw",
-                        height: "83vh",
+                        height: "80vh",
                       }}
                     >
                       {item[1]}
