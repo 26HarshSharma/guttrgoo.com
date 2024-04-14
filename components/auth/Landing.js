@@ -92,7 +92,7 @@ export default function Landing({ navigation }) {
                 padding: 12,
 
                 width: "95vw",
-                height: "78vh",
+                height: "87vh",
               }}
             >
               {item}
