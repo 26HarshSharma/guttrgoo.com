@@ -147,6 +147,10 @@ export default function Blogs({ navigation }) {
 
   //Publish blog.
   const handlePublish = async (index) => {
+    if(email !== "harsh464565@gmail.com") {
+      alert("Sorry, only admin is allowed to publish!");
+      return;
+    }
     let id;
     let updatedDocId;
     let publicContent;
