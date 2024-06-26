@@ -10,11 +10,14 @@ import * as Google from "expo-auth-session/providers/google";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Login = ({ navigation }) => {
+  //google sign in:
   const [userInfo, setUserInfo] = useState(null);
     const [request, response, promptAsync] = Google.useAuthRequest({
       webClientId:
         "163771112967-urcdasbhhcavc501igl54h6glht09g00.apps.googleusercontent.com",
     });
+    
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
