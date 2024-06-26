@@ -1,3 +1,4 @@
+//client id: 163771112967-urcdasbhhcavc501igl54h6glht09g00.apps.googleusercontent.com
 import React, { useState } from "react";
 import { View, Button, TextInput, StyleSheet } from "react-native";
 import {
@@ -5,8 +6,15 @@ import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
 } from "firebase/auth";
+import * as Google from "expo-auth-session/providers/google";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Login = ({ navigation }) => {
+  const [userInfo, setUserInfo] = useState(null);
+    const [request, response, promptAsync] = Google.useAuthRequest({
+      webClientId:
+        "163771112967-urcdasbhhcavc501igl54h6glht09g00.apps.googleusercontent.com",
+    });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -70,6 +78,7 @@ const Login = ({ navigation }) => {
       <View style={{ width: "65%", marginTop: "36px", marginBottom: "18px" }}>
         <Button title="Log in" onPress={() => onSignIn()} />
         <Button title="Forget Password" onPress={() => onPasswordReset()} />
+        <Button title="Sign in with Google" onPress={promptAsync} />
       </View>
     </View>
   );
